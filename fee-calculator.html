@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fee Calculator – FX Daily Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Estimate fees on currency conversions or payments." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="brand">
+    <div class="logo"></div>
+    <span>FX Daily</span>
+  </div>
+</header>
+
+<main class="shell">
+  <section class="card">
+    <h1>Fee calculator</h1>
+    <p class="muted">Estimate how much you lose to fees on a transaction.</p>
+
+    <div class="field">
+      <label for="feeAmount">Amount</label>
+      <input id="feeAmount" type="number" inputmode="decimal" placeholder="100" />
+    </div>
+
+    <div class="field">
+      <label for="feePercent">Fee percentage (%)</label>
+      <input id="feePercent" type="number" inputmode="decimal" placeholder="2.5" />
+    </div>
+
+    <button id="feeCalcBtn" class="primary-btn">Calculate</button>
+
+    <div id="feeResult" class="result" style="margin-top:12px;"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <a href="../">Home</a>
+</footer>
+
+<script>
+  const amountInput = document.getElementById('feeAmount');
+  const percentInput = document.getElementById('feePercent');
+  const resultEl = document.getElementById('feeResult');
+
+  document.getElementById('feeCalcBtn').addEventListener('click', () => {
+    const amount = parseFloat(amountInput.value || '0');
+    const percent = parseFloat(percentInput.value || '0');
+
+    if (!amount || amount <= 0 || percent < 0) {
+      resultEl.textContent = 'Enter a valid amount and fee percentage.';
+      return;
+    }
+
+    const fee = amount * (percent / 100);
+    const net = amount - fee;
+
+    resultEl.textContent = `Estimated fee: ${fee.toFixed(2)} (net: ${net.toFixed(2)})`;
+  });
+</script>
+
+</body>
+</html>
