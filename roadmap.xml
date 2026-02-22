@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<roadmap>
+
+  <feature status="live">
+    <title>Live currency conversion</title>
+    <description>Convert between major currencies with real-time rates.</description>
+  </feature>
+
+  <feature status="live">
+    <title>Favorites & history</title>
+    <description>Save your most-used pairs and see recent conversions.</description>
+  </feature>
+
+  <feature status="live">
+    <title>Rate mood & spotlight</title>
+    <description>Daily insights on how key currency pairs are moving.</description>
+  </feature>
+
+  <feature status="planned">
+    <title>Multi-language support</title>
+    <description>Localized UI for more regions.</description>
+  </feature>
+
+  <feature status="planned">
+    <title>Advanced alerts</title>
+    <description>More flexible rate alerts and notifications.</description>
+  </feature>
+
+</roadmap>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FX Daily – Smart Currency Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Fast, clean currency converter with live rates, favorites, history, streaks, tips, charts, and offline support." />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./assets/icons/icon-192.png" />
+  <meta name="theme-color" content="#111827" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body data-theme="dark">
+  <header class="top-bar">
+    <div class="brand">
+      <div class="logo"></div>
+      <span>FX Daily</span>
+    </div>
+    <div class="top-actions">
+      <select id="themeSelect" class="theme-select">
+        <option value="dark">Dark</option>
+        <option value="pastel">Pastel</option>
+      </select>
+      <button id="installBtn" class="ghost-btn" style="display:none;">Install app</button>
+    </div>
+  </header>
+
+  <main class="shell">
+
+    <!-- Converter -->
+    <section class="card converter">
+      <h1>Currency converter</h1>
+
+      <div class="field">
+        <label for="amount">Amount</label>
+        <input id="amount" type="number" inputmode="decimal" placeholder="100" />
+        <div class="chips" id="amountPresets"></div>
+      </div>
+
+      <div class="field">
+        <label>From</label>
+        <select id="fromCurrency"></select>
+      </div>
+
+      <div class="swap-row">
+        <button id="swapBtn" class="icon-btn">⇅ Swap</button>
+      </div>
+
+      <div class="field">
+        <label>To</label>
+        <select id="toCurrency"></select>
+      </div>
+
+      <button id="convertBtn" class="primary-btn">Convert</button>
+
+      <div id="result" class="result"></div>
+
+      <button id="saveFavoriteBtn" class="ghost-btn small">Save pair to favorites</button>
+    </section>
+
+    <!-- Sparkline chart -->
+    <section class="card">
+      <h2>7‑day trend</h2>
+      <p class="muted">Last 7 days for the selected pair.</p>
+      <div id="sparklineContainer" class="sparkline-container">
+        <svg id="sparklineSvg" viewBox="0 0 100 40" preserveAspectRatio="none"></svg>
+      </div>
+    </section>
+
+    <!-- Currency strength index -->
+    <section class="card">
+      <h2>Currency strength</h2>
+      <ul id="strengthList" class="history-list"></ul>
+    </section>
+
+    <!-- Streak -->
+    <section class="card">
+      <h2>Your streak</h2>
+      <p id="streakText" class="muted">Loading streak…</p>
+    </section>
+
+    <!-- Rate Mood -->
+    <section class="card">
+      <h2>Rate mood</h2>
+      <p id="rateMood" class="muted">Checking today’s movement…</p>
+    </section>
+
+    <!-- Market Snapshot -->
+    <section class="card">
+      <h2>Market snapshot</h2>
+      <p id="marketSnapshot" class="muted">Loading market insight…</p>
+    </section>
+
+    <!-- Spotlight -->
+    <section class="card">
+      <h2>Today’s spotlight</h2>
+      <p id="spotlightText" class="muted">Loading today’s pair…</p>
+    </section>
+
+    <!-- Tip of the day -->
+    <section class="card">
+      <h2>Tip of the day</h2>
+      <p id="tipText" class="muted">Loading tip…</p>
+    </section>
+
+    <!-- Trending pairs -->
+    <section class="card">
+      <h2>Trending pairs</h2>
+      <div id="trendingPairs" class="pill-list"></div>
+    </section>
+
+    <!-- Recently viewed -->
+    <section class="card">
+      <h2>Recently viewed</h2>
+      <div id="recentPairs" class="pill-list"></div>
+    </section>
+
+    <!-- Favorites -->
+    <section class="card">
+      <h2>Favorites</h2>
+      <div id="favoritesList" class="pill-list"></div>
+    </section>
+
+    <!-- History -->
+    <section class="card">
+      <h2>Recent conversions</h2>
+      <ul id="historyList" class="history-list"></ul>
+    </section>
+
+    <!-- Quick actions -->
+    <section class="card">
+      <h2>Quick actions</h2>
+      <div class="pill-list">
+        <button id="qaConvert" class="pill">Convert again</button>
+        <button id="qaSwap" class="pill">Swap</button>
+        <button id="qaLastAmount" class="pill">Use last amount</button>
+      </div>
+    </section>
+
+    <!-- Weekly summary -->
+    <section class="card">
+      <h2>Your weekly summary</h2>
+      <p id="weeklySummary" class="muted">Loading summary…</p>
+    </section>
+
+    <!-- Engagement -->
+    <section class="card">
+      <h2>Stay consistent</h2>
+      <p>Use FX Daily once a day to stay on top of your rates.</p>
+      <button id="dailyReminderBtn" class="secondary-btn">Remind me daily</button>
+      <button id="shareBtn" class="ghost-btn small">Share this app</button>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <a href="./about.html">About</a>
+    <a href="./privacy-policy.html">Privacy</a>
+    <a href="./terms.html">Terms</a>
+    <a href="./settings.html">Settings</a>
+    <a href="./changelog.html">Changelog</a>
+    <a href="./learn/what-is-forex.html">Learn</a>
+    <a href="./tools/fee-calculator.html">Tools</a>
+  </footer>
+
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
